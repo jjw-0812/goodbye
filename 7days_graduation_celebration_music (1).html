@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#fff4e8" />
+  <meta name="description" content="7일간의 교육 수료를 축하하는 작은 응원 페이지" />
+  <title>우리의 7일, 수료를 축하해요! 🎓</title>
+  <style>
+    :root { --ink:#514a65; --muted:#8d8398; --pink:#ffa9c4; --coral:#ff8299; --cream:#fff9ee; --lav:#bba9ff; --line:#eee4ea; }
+    * {box-sizing:border-box} html {scroll-behavior:smooth}
+    body {margin:0; color:var(--ink); font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif; background:radial-gradient(circle at 18% 10%,#ffe2ee 0,transparent 32%),radial-gradient(circle at 82% 13%,#eee4ff 0,transparent 32%),linear-gradient(180deg,#fff9f2,#fff7fd 70%,#f4f0ff); min-height:100vh; overflow-x:hidden}
+    .wrap{max-width:900px;margin:auto;padding:40px 20px 65px}
+    .top-note{text-align:center;font-size:13px;font-weight:800;letter-spacing:3px;color:#a28cbd}
+    .hero{position:relative;margin-top:25px;padding:40px 35px 35px;background:rgba(255,255,255,.84);border:3px solid white;box-shadow:0 18px 55px #bca5c52b;border-radius:35px;text-align:center;overflow:hidden}
+    .chip{display:inline-block;background:#fff0c9;border:1px solid #ffe1a0;color:#a77a35;border-radius:99px;padding:9px 20px;font-size:13px;font-weight:800}
+    h1{font-size:clamp(34px,6vw,62px);line-height:1.3;letter-spacing:-2px;margin:19px 0 14px;font-weight:900}
+    h1 em{font-style:normal;color:#ef779d} .lead{line-height:1.9;font-size:16px;color:#786e84}
+    .characters{display:flex;align-items:flex-end;justify-content:center;gap:22px;margin:28px auto 16px;min-height:190px}
+    .friend{position:relative;width:140px;height:145px;border-radius:58% 58% 48% 48%;background:#ffd0a9;border:4px solid #6b5672;box-shadow:inset -8px -10px #f8b98d;animation:bob 2.8s ease-in-out infinite}
+    .friend.pink{background:#ffcbdb;box-shadow:inset -8px -10px #f4aec9;animation-delay:.4s;transform:scale(.91)}
+    .ear{position:absolute;width:44px;height:83px;border-radius:50% 50% 30% 30%;border:4px solid #6b5672;top:-54px;background:inherit;z-index:-1}
+    .ear.left{left:13px;transform:rotate(-17deg)} .ear.right{right:13px;transform:rotate(17deg)}
+    .friend.bear .ear{height:50px;width:50px;top:-21px;border-radius:50%}.friend.bear .ear.left{left:-13px}.friend.bear .ear.right{right:-13px}
+    .eye{position:absolute;width:9px;height:13px;border-radius:50%;background:#5b4b63;top:57px}.eye.l{left:43px}.eye.r{right:43px}
+    .nose{position:absolute;width:13px;height:10px;background:#765a69;border-radius:50%;top:78px;left:calc(50% - 6px)}
+    .blush{position:absolute;width:22px;height:10px;border-radius:50%;background:#ee8ca3;opacity:.65;top:78px}.blush.l{left:16px}.blush.r{right:16px}
+    .cap{position:absolute;z-index:3;top:-24px;left:29px;width:81px;height:20px;background:#5c527b;border-radius:3px;transform:rotate(-10deg)}
+    .cap:before{content:"";position:absolute;width:95px;height:21px;left:-7px;top:-12px;background:#8176a4;transform:skewX(-23deg);border-radius:3px}.cap:after{content:"";position:absolute;height:35px;width:3px;background:#ffcb76;right:5px;top:5px;transform:rotate(-13deg)}
+    .mini-heart{position:absolute;top:42%;font-size:35px;animation:float 2.7s ease-in-out infinite}.mini-heart.one{left:10%;color:#ff9eb7}.mini-heart.two{right:11%;color:#b4a1ff;animation-delay:1s}
+    .primary{cursor:pointer;border:0;border-radius:99px;padding:17px 27px;background:linear-gradient(110deg,#fa85a8,#aa94f8);box-shadow:0 8px 0 #e8c6de,0 16px 26px #ec9cbe55;color:white;font-size:17px;font-weight:900;transition:transform .15s,box-shadow .15s}
+    .primary:hover{transform:translateY(-3px)}.primary:active{transform:translateY(5px);box-shadow:0 2px 0 #e8c6de}
+    .hint{font-size:12px;color:#a299a8;margin:21px 0 0}
+    .section-title{text-align:center;font-size:25px;margin:54px 0 20px;letter-spacing:-.7px}
+    .seven{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}
+    .day{background:white;border:2px solid #f1e6f2;border-radius:19px;padding:15px 3px;text-align:center;box-shadow:0 8px 17px #d1b9d018}
+    .day b{display:block;font-size:13px;color:#ae95b4}.day span{font-size:26px;display:block;margin:8px 0}.day small{font-size:12px;color:#716b7c;font-weight:700}
+    .message{margin-top:30px;padding:30px 25px;text-align:center;background:#fffdf7;border:2px dashed #f2c8ba;border-radius:27px;line-height:2}
+    .message strong{font-size:22px}.message p{margin:12px 0;color:#756d7a}.message .signature{color:#b387a7;font-weight:800}
+    .messagebox{margin-top:25px;text-align:center}.messagebox button{background:white;border:2px solid #e9d9ec;border-radius:99px;color:#826a9a;padding:12px 20px;cursor:pointer;font-weight:800}
+    #randomMsg{min-height:29px;color:#ec759b;font-size:17px;font-weight:800;margin-top:18px}
+    .music-card{margin:30px auto 0;max-width:690px;padding:24px;background:linear-gradient(135deg,#fff,#fff3fa);border:2px solid #f6d8e8;border-radius:27px;box-shadow:0 10px 26px #d9b7d626;text-align:center}
+    .music-tag{font-size:12px;letter-spacing:1.5px;color:#bc81a6;font-weight:900}
+    .music-card h2{font-size:24px;margin:12px 0 6px}
+    .music-card p{color:#83768b;line-height:1.7;font-size:14px;margin:6px 0 18px}
+    .music-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:9px}
+    .music-actions button,.music-actions a{display:inline-flex;align-items:center;justify-content:center;border-radius:30px;padding:12px 17px;font-size:14px;font-weight:800;text-decoration:none;cursor:pointer}
+    .music-actions button{border:0;background:#f28eae;color:white}
+    .music-actions a{border:2px solid #eed5e6;background:white;color:#856d94}
+    .player-shell{margin-top:18px;display:none;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#342b43}
+    .player-shell.active{display:block}.player-shell iframe{border:0;width:100%;height:100%}
+    .player-note{font-size:12px!important;margin-bottom:0!important;color:#a18ba4!important}
+    footer{text-align:center;color:#a497ae;font-size:12px;line-height:1.8;margin-top:40px}
+    .confetti{position:fixed;top:-20px;left:0;z-index:50;pointer-events:none;animation:fall var(--duration) linear forwards;transform:translateX(var(--drift)) rotate(var(--rotation));border-radius:3px}
+    @keyframes fall {to{transform:translate(var(--drift),110vh) rotate(calc(var(--rotation) + 900deg));opacity:.1}}
+    @keyframes bob{50%{translate:0 -9px}}@keyframes float{50%{translate:0 -14px}}
+    @media(max-width:650px){.wrap{padding:22px 13px 45px}.hero{padding:29px 15px 32px;border-radius:26px}.lead{font-size:14px}.seven{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.day{padding:11px 0}.day span{font-size:22px}.characters{gap:6px}.friend{scale:.83;margin:0 -9px}.mini-heart.one{left:3%}.mini-heart.two{right:3%}.section-title{font-size:22px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top-note">✦ A LITTLE GRADUATION PARTY ✦</div>
+    <section class="hero" aria-label="교육 수료 축하">
+      <span class="chip">🎉 7일 교육 과정 CLEAR!</span>
+      <h1>우리의 7일,<br><em>정말 수고 많았어요!</em></h1>
+      <p class="lead">처음엔 조금 어색했지만, 어느새 익숙해진 얼굴들 💗<br>함께 배우고 웃었던 7일이 오래도록 좋은 기억으로 남기를!</p>
+      <div class="characters" aria-label="학사모를 쓴 곰과 토끼 일러스트">
+        <div class="mini-heart one" aria-hidden="true">♥</div>
+        <div class="friend bear" role="img" aria-label="학사모를 쓴 곰"><i class="ear left"></i><i class="ear right"></i><i class="cap"></i><i class="eye l"></i><i class="eye r"></i><i class="nose"></i><i class="blush l"></i><i class="blush r"></i></div>
+        <div class="friend pink" role="img" aria-label="학사모를 쓴 토끼"><i class="ear left"></i><i class="ear right"></i><i class="cap"></i><i class="eye l"></i><i class="eye r"></i><i class="nose"></i><i class="blush l"></i><i class="blush r"></i></div>
+        <div class="mini-heart two" aria-hidden="true">♥</div>
+      </div>
+      <button type="button" class="primary" id="celebrate">🎊 수료 축하 폭죽 터뜨리기!</button>
+      <p class="hint">버튼을 눌러 작은 축하 파티를 열어보세요 ✨</p>
+    </section>
+
+    <h2 class="section-title">🌷 우리가 함께한 일주일</h2>
+    <section class="seven" aria-label="7일간의 기록">
+      <div class="day"><b>DAY 1</b><span>👋</span><small>첫 만남</small></div>
+      <div class="day"><b>DAY 2</b><span>📚</span><small>열공 시작</small></div>
+      <div class="day"><b>DAY 3</b><span>☕</span><small>커피 한 잔</small></div>
+      <div class="day"><b>DAY 4</b><span>💬</span><small>친해지는 중</small></div>
+      <div class="day"><b>DAY 5</b><span>🌱</span><small>한 뼘 성장</small></div>
+      <div class="day"><b>DAY 6</b><span>🤝</span><small>함께라서</small></div>
+      <div class="day"><b>DAY 7</b><span>🎓</span><small>수료 완료!</small></div>
+    </section>
+
+    <section class="message">
+      <div aria-hidden="true">💌</div>
+      <strong>함께해서 더 특별했던 7일</strong>
+      <p>낯선 자리에서도 서로 인사하고, 작은 이야기에 웃고,<br>바쁜 시간 속에서도 끝까지 함께해 주셔서 감사합니다.<br><b>모두의 수료를 진심으로 축하합니다!</b><br>각자의 자리에서도 건강하고 즐겁게 일하시길 응원할게요 🌼</p>
+      <div class="signature">— 함께 교육받은 동료가 💕</div>
+    </section>
+
+    <section class="music-card" aria-label="수료를 축하하는 노래">
+      <div class="music-tag">🎧 A SONG FOR OUR 7 DAYS</div>
+      <h2>🌙 수고했어, 오늘도</h2>
+      <p>옥상달빛 · 우리의 마지막 교육일에 건네는 작은 선물<br>7일 동안 정말 수고 많았습니다. 이 노래를 함께 들어요 💗</p>
+      <div class="music-actions">
+        <button id="musicPlay" type="button" aria-controls="musicPlayer" aria-expanded="false">▶ 노래 듣기</button>
+        <a href="https://www.youtube.com/watch?v=U3e4AOd-DzE" target="_blank" rel="noopener noreferrer">↗ 유튜브에서 듣기</a>
+      </div>
+      <div class="player-shell" id="musicPlayer"></div>
+      <p class="player-note">공식 유튜브 영상으로 재생됩니다. 브라우저 설정에 따라 재생 버튼을 한 번 더 눌러야 할 수 있어요.</p>
+    </section>
+
+    <section class="messagebox" aria-label="랜덤 응원 메시지">
+      <button type="button" id="cheer">🍀 오늘의 응원 한마디 뽑기</button>
+      <div id="randomMsg" aria-live="polite">앞으로도 좋은 일만 가득하길! ✨</div>
+    </section>
+    <footer>7 DAYS TOGETHER · MEMORIES FOREVER<br>우리 모두의 새로운 출발을 응원합니다 🎀</footer>
+  </main>
+  <script>
+    const musicPlay = document.getElementById('musicPlay');
+    const musicPlayer = document.getElementById('musicPlayer');
+    musicPlay.addEventListener('click', () => {
+      if (musicPlayer.classList.contains('active')) {
+        musicPlayer.replaceChildren();
+        musicPlayer.classList.remove('active');
+        musicPlay.textContent = '▶ 노래 듣기';
+        musicPlay.setAttribute('aria-expanded', 'false');
+      } else {
+        const frame = document.createElement('iframe');
+        frame.src = 'https://www.youtube-nocookie.com/embed/U3e4AOd-DzE?autoplay=1&rel=0';
+        frame.title = '옥상달빛 - 수고했어, 오늘도 (공식 영상)';
+        frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        frame.allowFullscreen = true;
+        frame.referrerPolicy = 'strict-origin-when-cross-origin';
+        musicPlayer.appendChild(frame);
+        musicPlayer.classList.add('active');
+        musicPlay.textContent = '■ 음악 닫기';
+        musicPlay.setAttribute('aria-expanded', 'true');
+      }
+    });
+    const messages = [
+      '앞으로도 좋은 일만 가득하길! ✨',
+      '오늘도 내일도, 당신의 하루를 응원해요 🌷',
+      '7일을 완주한 우리, 이미 충분히 멋져요 🏅',
+      '각자의 자리에서 반짝반짝 빛나길! ⭐',
+      '언젠가 또 반갑게 만나요! 🤝',
+      '일도 중요하지만, 건강과 행복은 더 중요해요 💗',
+      '수료는 끝이 아니라 새로운 시작! 🎓'
+    ];
+    document.querySelector('#cheer').addEventListener('click',()=>{
+      const msg = document.querySelector('#randomMsg');
+      const pool = messages.filter(s=>s!==msg.textContent);
+      msg.textContent=pool[Math.floor(Math.random()*pool.length)];
+    });
+    document.querySelector('#celebrate').addEventListener('click',()=>{
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelector('#randomMsg').textContent='모두 수료 축하합니다! 🎉'; return;
+      }
+      const colors=['#ff90b4','#b6a0ff','#ffd877','#8edbc5','#87c4ee','#ffac80'];
+      const fragment=document.createDocumentFragment();
+      for(let i=0;i<95;i++){
+        const piece=document.createElement('span');piece.className='confetti';
+        piece.style.left=(Math.random()*100)+'vw';
+        piece.style.width=(6+Math.random()*8)+'px';piece.style.height=(6+Math.random()*13)+'px';
+        piece.style.background=colors[Math.floor(Math.random()*colors.length)];
+        piece.style.setProperty('--duration',(2.3+Math.random()*2)+'s');
+        piece.style.setProperty('--drift',((Math.random()-.5)*170)+'px');
+        piece.style.setProperty('--rotation',(Math.random()*360)+'deg');
+        piece.addEventListener('animationend',()=>piece.remove(),{once:true});fragment.appendChild(piece);
+      }
+      document.body.appendChild(fragment);
+    });
+  </script>
+</body>
+</html>
